@@ -17,8 +17,8 @@ workflows:
       vars:
         BUNDLE_ID: "com.fermion.tts-stt"
         XCODE_PROJECT: "tts_stt.xcodeproj"       # OR XCODE_WORKSPACE if you use workspace
-        XCODE_SCHEME: "tts_stt"
-#        XCODE_SCHEME: "MyAppReleaseScheme"
+#        XCODE_SCHEME: "tts_stt"
+        XCODE_SCHEME: "MyAppReleaseScheme"
         APP_STORE_APPLE_ID: 6753676653         # your App Store numeric ID (optional)
       xcode: latest
       cocoapods: default
