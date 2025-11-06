@@ -6,6 +6,13 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		FA083BAC2E93A1F600403CAE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = FA083BAB2E93A1F600403CAE /* FirebaseAuth */; };
+		FA083BAE2E93A1F600403CAE /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = FA083BAD2E93A1F600403CAE /* FirebaseCore */; };
+		FA083BB02E93A23700403CAE /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = FA083BAF2E93A23700403CAE /* GoogleSignIn */; };
+		FA083BB22E93A23700403CAE /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA083BB12E93A23700403CAE /* GoogleSignInSwift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		FA083B272E938D9900403CAE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -65,6 +72,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA083BAE2E93A1F600403CAE /* FirebaseCore in Frameworks */,
+				FA083BAC2E93A1F600403CAE /* FirebaseAuth in Frameworks */,
+				FA083BB02E93A23700403CAE /* GoogleSignIn in Frameworks */,
+				FA083BB22E93A23700403CAE /* GoogleSignInSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -125,6 +136,10 @@
 			);
 			name = tts_stt;
 			packageProductDependencies = (
+				FA083BAB2E93A1F600403CAE /* FirebaseAuth */,
+				FA083BAD2E93A1F600403CAE /* FirebaseCore */,
+				FA083BAF2E93A23700403CAE /* GoogleSignIn */,
+				FA083BB12E93A23700403CAE /* GoogleSignInSwift */,
 			);
 			productName = tts_stt;
 			productReference = FA083B102E938D9700403CAE /* tts_stt.app */;
@@ -208,6 +223,10 @@
 			);
 			mainGroup = FA083B072E938D9600403CAE;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				FA083BA92E9392D000403CAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				FA083BAA2E939D6C00403CAE /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = FA083B112E938D9700403CAE /* Products */;
 			projectDirPath = "";
@@ -289,8 +308,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z6VDKHY72D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = tts_stt/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires access to the microphone to capture your voice.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app uses speech recognition to convert your voice into text.\nThis app uses speech recognition to convert your voice into text.\nThisThis app uses speech recognition to convert your voice into text.\napp uses speech recognition to convert your voice into text.\n";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -316,8 +338,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z6VDKHY72D;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = tts_stt/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "This app requires access to the microphone to capture your voice.";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "This app uses speech recognition to convert your voice into text.\nThis app uses speech recognition to convert your voice into text.\nThisThis app uses speech recognition to convert your voice into text.\napp uses speech recognition to convert your voice into text.\n";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -563,6 +588,48 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FA083BA92E9392D000403CAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.3.0;
+			};
+		};
+		FA083BAA2E939D6C00403CAE /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FA083BAB2E93A1F600403CAE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA083BA92E9392D000403CAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		FA083BAD2E93A1F600403CAE /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA083BA92E9392D000403CAE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		FA083BAF2E93A23700403CAE /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA083BAA2E939D6C00403CAE /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		FA083BB12E93A23700403CAE /* GoogleSignInSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FA083BAA2E939D6C00403CAE /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignInSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA083B082E938D9600403CAE /* Project object */;
 }
