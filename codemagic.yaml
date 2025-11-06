@@ -1,0 +1,71 @@
+workflows:
+  ios-native-workflow:
+    name: iOS Native
+    max_build_duration: 120
+    instance_type: mac_air
+    integrations:
+      # If you added the App Store Connect key in Codemagic UI, reference its name here:
+      app_store_connect: Fermion
+
+    environment:
+      # Code signing: fetches provisioning + certs matching the bundle id for App Store distribution
+      ios_signing:
+        distribution_type: app_store
+        bundle_identifier: com.fermion.tts-stt
+
+      # Common vars (customize)
+      vars:
+        BUNDLE_ID: "com.fermion.tts-stt"
+        XCODE_PROJECT: "tts_stt.xcodeproj"       # OR XCODE_WORKSPACE if you use workspace
+        XCODE_SCHEME: "tts_stt"
+#        XCODE_SCHEME: "MyAppReleaseScheme"
+        APP_STORE_APPLE_ID: 6753676653         # your App Store numeric ID (optional)
+      xcode: latest
+      cocoapods: default
+
+    scripts:
+      - name: Install dependencies
+        script: |
+          if [ -f "Podfile" ]; then
+            pod repo update
+            pod install --repo-update
+          fi
+
+      - name: Set up provisioning profiles on Xcode project
+        script: |
+          # This will create /Users/builder/export_options.plist for the archive/export step
+          xcode-project use-profiles
+
+      - name: Increment build number (optional)
+        script: |
+          cd $CM_BUILD_DIR
+          if [ -n "$APP_STORE_APPLE_ID" ]; then
+            LATEST_BUILD_NUMBER=$(app-store-connect get-latest-app-store-build-number "$APP_STORE_APPLE_ID")
+            NEW_BUILD_NUMBER=$((LATEST_BUILD_NUMBER + 1))
+            /usr/libexec/PlistBuddy -c "Set :CFBundleVersion $NEW_BUILD_NUMBER" "$CM_BUILD_DIR/$XCODE_PROJECT/Info.plist"
+          fi
+
+      - name: Archive app
+        script: |
+          ARCHIVE_PATH="$CM_BUILD_DIR/build/ios/archive/$XCODE_SCHEME.xcarchive"
+          mkdir -p "$(dirname "$ARCHIVE_PATH")"
+          xcodebuild -project "$XCODE_PROJECT" -scheme "$XCODE_SCHEME" -configuration Release -archivePath "$ARCHIVE_PATH" clean archive
+
+      - name: Export IPA
+        script: |
+          EXPORT_DIR="$CM_BUILD_DIR/build/ios/ipa"
+          mkdir -p "$EXPORT_DIR"
+          # use the export options saved by xcode-project use-profiles:
+          xcodebuild -exportArchive -archivePath "$ARCHIVE_PATH" -exportOptionsPlist /Users/builder/export_options.plist -exportPath "$EXPORT_DIR"
+
+    artifacts:
+      - build/ios/ipa/*.ipa
+
+    publishing:
+      app_store_connect:
+        auth: integration
+        submit_to_testflight: true
+        submit_to_app_store: false   # set to true if you want automatic App Store release
+        beta_groups:
+          - "Internal Testers"
+

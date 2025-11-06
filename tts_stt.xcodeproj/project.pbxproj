@@ -11,6 +11,7 @@
 		FA083BAE2E93A1F600403CAE /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = FA083BAD2E93A1F600403CAE /* FirebaseCore */; };
 		FA083BB02E93A23700403CAE /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = FA083BAF2E93A23700403CAE /* GoogleSignIn */; };
 		FA083BB22E93A23700403CAE /* GoogleSignInSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FA083BB12E93A23700403CAE /* GoogleSignInSwift */; };
+		FA083BB42EBC703F00403CAE /* codemagic.yaml in Resources */ = {isa = PBXBuildFile; fileRef = FA083BB32EBC703200403CAE /* codemagic.yaml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +35,7 @@
 		FA083B102E938D9700403CAE /* tts_stt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tts_stt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA083B262E938D9900403CAE /* tts_sttTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tts_sttTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA083B302E938D9900403CAE /* tts_sttUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tts_sttUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA083BB32EBC703200403CAE /* codemagic.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = codemagic.yaml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -99,6 +101,7 @@
 		FA083B072E938D9600403CAE = {
 			isa = PBXGroup;
 			children = (
+				FA083BB32EBC703200403CAE /* codemagic.yaml */,
 				FA083B122E938D9700403CAE /* tts_stt */,
 				FA083B292E938D9900403CAE /* tts_sttTests */,
 				FA083B332E938D9900403CAE /* tts_sttUITests */,
@@ -244,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA083BB42EBC703F00403CAE /* codemagic.yaml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
